@@ -8,7 +8,7 @@ struct SolarCalculator {
     
     
     public init(forLocation location: CLLocation, atDate date: Date){
-        sun = Sun(location: location, timeZone: Calendar.current.timeZone, date: date)
+        self.sun = Sun(location: location, timeZone: Calendar.current.timeZone, date: date)
         self.date = date
         
         if (date < sun.decemberSolstice && date < sun.juneSolstice) {
@@ -51,7 +51,7 @@ struct SolarCalculator {
             + cal.component(.minute, from: then) * 60
             + cal.component(.second, from: then)
                         
-            return Double(seconds_now - seconds_then)
+            return Double(seconds_then - seconds_now)
         }
     }
 
