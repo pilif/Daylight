@@ -36,7 +36,7 @@ struct SunRow: View {
         let str = (abs(diff) > 60 * 60)
             ? Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .hourMinute)) + " h"
             : Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .minuteSecond)) + " min"
-        let prefix = diff >= 0 ? "+" : "-"
+        let prefix = diff >= 0 ? "+" : ""
         
         return "\(prefix) \(str)"
     }
