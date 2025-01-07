@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		761EBFB42D2D044B00DBF604 /* Daylight Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		76379D162D2D209D00799374 /* SunKit in Frameworks */ = {isa = PBXBuildFile; productRef = 76379D152D2D209D00799374 /* SunKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		761EBFB52D2D044B00DBF604 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 761EBFA72D2D044B00DBF604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 761EBFB22D2D044B00DBF604;
+			remoteInfo = "Daylight Watch App";
+		};
+		761EBFC62D2D044C00DBF604 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 761EBFA72D2D044B00DBF604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 761EBFB22D2D044B00DBF604;
+			remoteInfo = "Daylight Watch App";
+		};
+		761EBFD02D2D044C00DBF604 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 761EBFA72D2D044B00DBF604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 761EBFB22D2D044B00DBF604;
+			remoteInfo = "Daylight Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		761EBFDC2D2D044C00DBF604 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				761EBFB42D2D044B00DBF604 /* Daylight Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		761EBFAD2D2D044B00DBF604 /* Daylight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daylight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daylight Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daylight Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daylight Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		761EBFB72D2D044B00DBF604 /* Daylight Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Daylight Watch App";
+			sourceTree = "<group>";
+		};
+		761EBFC82D2D044C00DBF604 /* Daylight Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Daylight Watch AppTests";
+			sourceTree = "<group>";
+		};
+		761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Daylight Watch AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		761EBFB02D2D044B00DBF604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76379D162D2D209D00799374 /* SunKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFC22D2D044C00DBF604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFCC2D2D044C00DBF604 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		761EBFA62D2D044B00DBF604 = {
+			isa = PBXGroup;
+			children = (
+				761EBFB72D2D044B00DBF604 /* Daylight Watch App */,
+				761EBFC82D2D044C00DBF604 /* Daylight Watch AppTests */,
+				761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */,
+				76379D092D2D172300799374 /* Frameworks */,
+				761EBFAE2D2D044B00DBF604 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		761EBFAE2D2D044B00DBF604 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				761EBFAD2D2D044B00DBF604 /* Daylight.app */,
+				761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */,
+				761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */,
+				761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		76379D092D2D172300799374 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		761EBFAC2D2D044B00DBF604 /* Daylight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 761EBFDD2D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight" */;
+			buildPhases = (
+				761EBFAB2D2D044B00DBF604 /* Resources */,
+				761EBFDC2D2D044C00DBF604 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				761EBFB62D2D044B00DBF604 /* PBXTargetDependency */,
+			);
+			name = Daylight;
+			packageProductDependencies = (
+			);
+			productName = Daylight;
+			productReference = 761EBFAD2D2D044B00DBF604 /* Daylight.app */;
+			productType = "com.apple.product-type.application.watchapp2-container";
+		};
+		761EBFB22D2D044B00DBF604 /* Daylight Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 761EBFD92D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch App" */;
+			buildPhases = (
+				761EBFAF2D2D044B00DBF604 /* Sources */,
+				761EBFB02D2D044B00DBF604 /* Frameworks */,
+				761EBFB12D2D044B00DBF604 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				761EBFB72D2D044B00DBF604 /* Daylight Watch App */,
+			);
+			name = "Daylight Watch App";
+			packageProductDependencies = (
+				76379D152D2D209D00799374 /* SunKit */,
+			);
+			productName = "Daylight Watch App";
+			productReference = 761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		761EBFC42D2D044C00DBF604 /* Daylight Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 761EBFE02D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch AppTests" */;
+			buildPhases = (
+				761EBFC12D2D044C00DBF604 /* Sources */,
+				761EBFC22D2D044C00DBF604 /* Frameworks */,
+				761EBFC32D2D044C00DBF604 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				761EBFC72D2D044C00DBF604 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				761EBFC82D2D044C00DBF604 /* Daylight Watch AppTests */,
+			);
+			name = "Daylight Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "Daylight Watch AppTests";
+			productReference = 761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		761EBFCE2D2D044C00DBF604 /* Daylight Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 761EBFE32D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch AppUITests" */;
+			buildPhases = (
+				761EBFCB2D2D044C00DBF604 /* Sources */,
+				761EBFCC2D2D044C00DBF604 /* Frameworks */,
+				761EBFCD2D2D044C00DBF604 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				761EBFD12D2D044C00DBF604 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */,
+			);
+			name = "Daylight Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "Daylight Watch AppUITests";
+			productReference = 761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		761EBFA72D2D044B00DBF604 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					761EBFAC2D2D044B00DBF604 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					761EBFB22D2D044B00DBF604 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					761EBFC42D2D044C00DBF604 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 761EBFB22D2D044B00DBF604;
+					};
+					761EBFCE2D2D044C00DBF604 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 761EBFB22D2D044B00DBF604;
+					};
+				};
+			};
+			buildConfigurationList = 761EBFAA2D2D044B00DBF604 /* Build configuration list for PBXProject "Daylight" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 761EBFA62D2D044B00DBF604;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				76379D142D2D208100799374 /* XCRemoteSwiftPackageReference "SunKit" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 761EBFAE2D2D044B00DBF604 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				761EBFAC2D2D044B00DBF604 /* Daylight */,
+				761EBFB22D2D044B00DBF604 /* Daylight Watch App */,
+				761EBFC42D2D044C00DBF604 /* Daylight Watch AppTests */,
+				761EBFCE2D2D044C00DBF604 /* Daylight Watch AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		761EBFAB2D2D044B00DBF604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFB12D2D044B00DBF604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFC32D2D044C00DBF604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFCD2D2D044C00DBF604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		761EBFAF2D2D044B00DBF604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFC12D2D044C00DBF604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		761EBFCB2D2D044C00DBF604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		761EBFB62D2D044B00DBF604 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 761EBFB22D2D044B00DBF604 /* Daylight Watch App */;
+			targetProxy = 761EBFB52D2D044B00DBF604 /* PBXContainerItemProxy */;
+		};
+		761EBFC72D2D044C00DBF604 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 761EBFB22D2D044B00DBF604 /* Daylight Watch App */;
+			targetProxy = 761EBFC62D2D044C00DBF604 /* PBXContainerItemProxy */;
+		};
+		761EBFD12D2D044C00DBF604 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 761EBFB22D2D044B00DBF604 /* Daylight Watch App */;
+			targetProxy = 761EBFD02D2D044C00DBF604 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		761EBFD72D2D044C00DBF604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		761EBFD82D2D044C00DBF604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		761EBFDA2D2D044C00DBF604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Daylight Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = R9U6Q6F846;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daylight-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Daylight;
+				INFOPLIST_KEY_NSLocationUsageDescription = "Daylight likes to know your location in order to show sunrise and sunset times specific to your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Daylight likes to know your location in order to show sunrise and sunset times specific to your location";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		761EBFDB2D2D044C00DBF604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Daylight Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = R9U6Q6F846;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Daylight-Watch-App-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Daylight;
+				INFOPLIST_KEY_NSLocationUsageDescription = "Daylight likes to know your location in order to show sunrise and sunset times specific to your location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Daylight likes to know your location in order to show sunrise and sunset times specific to your location";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKWatchOnly = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
+		761EBFDE2D2D044C00DBF604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9U6Q6F846;
+				INFOPLIST_KEY_CFBundleDisplayName = Daylight;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		761EBFDF2D2D044C00DBF604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9U6Q6F846;
+				INFOPLIST_KEY_CFBundleDisplayName = Daylight;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		761EBFE12D2D044C00DBF604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.pilif.Daylight-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylight Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Daylight Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		761EBFE22D2D044C00DBF604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.pilif.Daylight-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylight Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Daylight Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+		761EBFE42D2D044C00DBF604 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.pilif.Daylight-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Daylight Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		761EBFE52D2D044C00DBF604 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "me.pilif.Daylight-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "Daylight Watch App";
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		761EBFAA2D2D044B00DBF604 /* Build configuration list for PBXProject "Daylight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				761EBFD72D2D044C00DBF604 /* Debug */,
+				761EBFD82D2D044C00DBF604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		761EBFD92D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				761EBFDA2D2D044C00DBF604 /* Debug */,
+				761EBFDB2D2D044C00DBF604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		761EBFDD2D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				761EBFDE2D2D044C00DBF604 /* Debug */,
+				761EBFDF2D2D044C00DBF604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		761EBFE02D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				761EBFE12D2D044C00DBF604 /* Debug */,
+				761EBFE22D2D044C00DBF604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		761EBFE32D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				761EBFE42D2D044C00DBF604 /* Debug */,
+				761EBFE52D2D044C00DBF604 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		76379D142D2D208100799374 /* XCRemoteSwiftPackageReference "SunKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Sunlitt/SunKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		76379D152D2D209D00799374 /* SunKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76379D142D2D208100799374 /* XCRemoteSwiftPackageReference "SunKit" */;
+			productName = SunKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 761EBFA72D2D044B00DBF604 /* Project object */;
+}
