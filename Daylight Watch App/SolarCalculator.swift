@@ -46,9 +46,12 @@ struct SolarCalculator {
     var d: Date = date
     let c = Calendar.current
     while d < sun.juneSolstice {
-      let cd = c.date(byAdding: .day, value: 1, to: d)
-      guard let d = cd else { return nil }
-      if d > sun.civilDawn { return d }
+      if let cd = c.date(byAdding: .day, value: 1, to: d) {
+        d = cd
+        if d > sun.civilDawn { return d }
+      } else {
+        return nil
+      }
     }
     return nil
   }
