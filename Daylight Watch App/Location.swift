@@ -14,7 +14,7 @@ class Location: NSObject, ObservableObject, CLLocationManagerDelegate {
     super.init()
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-    if let prev = UserDefaults.standard.object(forKey: "lat") as? NSObject {
+    if UserDefaults.standard.object(forKey: "lat") is NSObject {
       let lat = UserDefaults.standard.double(forKey: "lat")
       let long = UserDefaults.standard.double(forKey: "long")
       lastSeenLocation = CLLocation(latitude: lat, longitude: long)
