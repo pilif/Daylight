@@ -37,7 +37,7 @@ struct SunRow: View {
 
   private var formattedDate: String {
     let f = DateFormatter()
-    f.dateFormat = "MMM dd, HH:mm"
+    f.dateFormat = "HH:mm"
     return f.string(from: absolute)
   }
 

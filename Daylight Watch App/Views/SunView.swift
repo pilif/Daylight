@@ -4,7 +4,7 @@ struct SunView: View {
   @EnvironmentObject var locationViewModel: Location
   @State var displayDate: Date = Date()
   @State var currentDate: Date = Date()
-  @State private var crownValue = 0.0
+  @State private var crownValue: Double = 0.0
 
   var body: some View {
     let calculator = SolarCalculator(
@@ -12,7 +12,8 @@ struct SunView: View {
       atDate: self.displayDate)
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
-    VStack {
+    VStack(alignment: .leading) {
+      DateRow(currentDate: currentDate, displayDate: displayDate, offset: $crownValue)
       SunRow(
         sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice,
         absolute: calculator.sunrise, preview: calculator.nextDayWhenSunIsUp)
