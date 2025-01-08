@@ -38,9 +38,22 @@ struct SolarCalculator {
     sun.civilDusk
   }
 
-  public var morningTimeSinceSolistice: TimeInterval {
-    let cal = Calendar.current
+  public var nextDayWhenSunIsUp: Date? {
+    if date > sun.civilDawn {
+      return nil
+    }
 
+    var d: Date = date
+    let c = Calendar.current
+    while d < sun.juneSolstice {
+      let cd = c.date(byAdding: .day, value: 1, to: d)
+      guard let d = cd else { return nil }
+      if d > sun.civilDawn { return d }
+    }
+    return nil
+  }
+
+  public var morningTimeSinceSolistice: TimeInterval {
     let now = self.sun.civilDawn
     let then = self.sunAtSolstice.civilDawn
 

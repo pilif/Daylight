@@ -14,11 +14,12 @@ struct SunView: View {
 
     VStack {
       SunRow(
-        sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice, absolute: calculator.sunrise
-      )
+        sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice,
+        absolute: calculator.sunrise, preview: calculator.nextDayWhenSunIsUp)
       Spacer()
       SunRow(
-        sunStyle: .sunset, diff: calculator.eveningTimeSinceSolistice, absolute: calculator.sunset)
+        sunStyle: .sunset, diff: calculator.eveningTimeSinceSolistice, absolute: calculator.sunset,
+        preview: nil)
       //            Text("Crown Value: \(crownValue) sr=\(calculator.sunrise.formatted(.iso8601))")
     }
     .onReceive(timer) { date in
