@@ -1,4 +1,4 @@
 enum SunStyle {
-    case sunrise
-    case sunset
+  case sunrise
+  case sunset
 }
