@@ -44,36 +44,29 @@ struct SolarCalculator {
     let now = self.sun.civilDawn
     let then = self.sunAtSolstice.civilDawn
 
-    let seconds_now =
-      cal.component(.hour, from: now) * 60 * 60
-      + cal.component(.minute, from: now) * 60
-      + cal.component(.second, from: now)
-
-    let seconds_then =
-      cal.component(.hour, from: then) * 60 * 60
-      + cal.component(.minute, from: then) * 60
-      + cal.component(.second, from: then)
+    let seconds_now = now.secondsSinceMidnight
+    let seconds_then = then.secondsSinceMidnight
 
     return Double(seconds_then - seconds_now)
   }
 
   public var eveningTimeSinceSolistice: TimeInterval {
-    let cal = Calendar.current
-
     let now = self.sun.civilDusk
     let then = self.sunAtSolstice.civilDusk
 
-    let seconds_now =
-      cal.component(.hour, from: now) * 60 * 60
-      + cal.component(.minute, from: now) * 60
-      + cal.component(.second, from: now)
-
-    let seconds_then =
-      cal.component(.hour, from: then) * 60 * 60
-      + cal.component(.minute, from: then) * 60
-      + cal.component(.second, from: then)
+    let seconds_now = now.secondsSinceMidnight
+    let seconds_then = then.secondsSinceMidnight
 
     return Double(seconds_now - seconds_then)
   }
 
+}
+
+extension Date {
+  public var secondsSinceMidnight: Int {
+    let cal = Calendar.current
+    return cal.component(.hour, from: self) * 60 * 60
+      + cal.component(.minute, from: self) * 60
+      + cal.component(.second, from: self)
+  }
 }
