@@ -24,3 +24,10 @@ jobs:
       run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
     - name: Run tests
       run: ./run-tests.sh
+    - name: Uplaod test results
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: result
+        path: result
+        if-no-files-found: ignore
