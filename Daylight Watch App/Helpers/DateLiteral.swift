@@ -10,7 +10,7 @@ extension Date: @retroactive ExpressibleByStringLiteral {
       .withDashSeparatorInDate,
       .withColonSeparatorInTime,
     ]
-    formatterWithTime.timeZone = Calendar.current.timeZone
+    formatterWithTime.timeZone = TimeZone(identifier: "Europe/Zurich")
 
     let formatterDateOnly = ISO8601DateFormatter()
     formatterDateOnly.formatOptions = [
