@@ -25,8 +25,8 @@ struct DateRow: View {
 }
 
 #Preview {
-  let current = Date(timeIntervalSince1970: 1_736_231_829)
-  let display = Date(timeIntervalSince1970: 1_736_985_600)
+  let current: Date = "2025-01-07 07:37:09"
+  let display: Date = "2025-01-16 00:00:00"
 
   DateRow(currentDate: current, displayDate: display, offset: .constant(0.0))
 }

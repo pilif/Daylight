@@ -65,19 +65,19 @@ struct SunRow: View {
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
-    absolute: Date(timeIntervalSince1970: 1_736_231_829),
+    absolute: "2025-01-07 07:37:09",
     preview: nil
   )
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
-    absolute: Date(timeIntervalSince1970: 1_736_231_829),
-    preview: Date(timeIntervalSince1970: 1_736_573_722)
+    absolute: "2025-01-07 07:37:09",
+    preview: "2025-01-11 06:35:22"
   )
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
-    absolute: Date(timeIntervalSince1970: 1_736_231_829),
-    preview: Date(timeIntervalSince1970: 1_736_985_600)
+    absolute: "2025-01-07 07:37:09",
+    preview: "2025-01-16 01:00:00+01"
   )
 }

@@ -30,12 +30,12 @@ struct SunPreview: View {
 
 #Preview {
   SunPreview(
-    absolute: Date(timeIntervalSince1970: 1_736_400_922),
-    preview: Date(timeIntervalSince1970: 1_740_893_722)
+    absolute: "2025-01-09 06:35:22+01",
+    preview: "2025-03-02 06:35:22+01"
   )
 
   SunPreview(
-    absolute: Date(timeIntervalSince1970: 1_736_400_922),
-    preview: Date(timeIntervalSince1970: 1_736_573_722)
+    absolute: "2025-01-09 06:35:22+01",
+    preview: "2025-01-11 06:35:22+01"
   )
 }
