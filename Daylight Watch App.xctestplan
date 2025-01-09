@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "6A56208D-E3E4-4E41-8543-6B893D4E864D",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Daylight.xcodeproj",
+      "identifier" : "761EBFB22D2D044B00DBF604",
+      "name" : "Daylight Watch App"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Daylight.xcodeproj",
+        "identifier" : "761EBFC42D2D044C00DBF604",
+        "name" : "Daylight Watch AppTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Daylight.xcodeproj",
+        "identifier" : "761EBFCE2D2D044C00DBF604",
+        "name" : "Daylight Watch AppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

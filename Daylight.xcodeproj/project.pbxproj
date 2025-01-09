@@ -54,6 +54,7 @@
 		761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daylight Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daylight Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daylight Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		76904C732D2FC6260007A63E /* Daylight Watch App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Daylight Watch App.xctestplan"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -103,6 +104,7 @@
 		761EBFA62D2D044B00DBF604 = {
 			isa = PBXGroup;
 			children = (
+				76904C732D2FC6260007A63E /* Daylight Watch App.xctestplan */,
 				761EBFB72D2D044B00DBF604 /* Daylight Watch App */,
 				761EBFC82D2D044C00DBF604 /* Daylight Watch AppTests */,
 				761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */,
