@@ -19,13 +19,7 @@ struct SunRow: View {
           .font(.title3)
 
         if let preview {
-          HStack {
-            Image(systemName: "sparkles")
-              .symbolRenderingMode(.multicolor)
-            Text("\(formatAsPreview(date: preview))")
-              .font(.footnote)
-
-          }
+          SunPreview(absolute: absolute, preview: preview)
         } else {
           Text("\(formattedDate)")
             .font(.footnote)
@@ -53,19 +47,6 @@ struct SunRow: View {
     return "\(prefix)\(str)"
   }
 
-  private func formatAsPreview(date: Date) -> String {
-
-    if abs(Calendar.current.dateComponents([.day], from: date, to: self.absolute).day ?? 0) > 7 {
-      let f = DateFormatter()
-      f.dateFormat = "MMM dd, HH:mm"
-      return f.string(from: date)
-    } else {
-      let f = RelativeDateTimeFormatter()
-      return f.localizedString(for: date, relativeTo: self.absolute)
-    }
-
-  }
-
   init(sunStyle: SunStyle, diff: TimeInterval, absolute: Date, preview: Date?) {
     systemName =
       switch sunStyle {
@@ -81,6 +62,18 @@ struct SunRow: View {
 }
 
 #Preview {
+  SunRow(
+    sunStyle: .sunrise,
+    diff: 101.0,
+    absolute: Date(timeIntervalSince1970: 1_736_231_829),
+    preview: nil
+  )
+  SunRow(
+    sunStyle: .sunrise,
+    diff: 101.0,
+    absolute: Date(timeIntervalSince1970: 1_736_231_829),
+    preview: Date(timeIntervalSince1970: 1_736_573_722)
+  )
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
