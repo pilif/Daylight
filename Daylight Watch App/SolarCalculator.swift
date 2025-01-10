@@ -5,24 +5,28 @@ struct SolarCalculator {
   private let date: Date
   private let sun: Sun
   private let sunAtSolstice: Sun
+  private let calendar: Calendar
 
-  public init(forLocation location: CLLocation, atDate date: Date) {
-    self.sun = Sun(location: location, timeZone: Calendar.current.timeZone, date: date)
+  public init(
+    forLocation location: CLLocation, atDate date: Date, calendar: Calendar = Calendar.current
+  ) {
+    self.sun = Sun(location: location, timeZone: calendar.timeZone, date: date)
     self.date = date
+    self.calendar = calendar
 
     if date < sun.decemberSolstice && date < sun.juneSolstice {
       let lastYear = Calendar.current.date(byAdding: DateComponents(year: -1), to: date)!
 
-      let lastSun = Sun(location: location, timeZone: Calendar.current.timeZone, date: lastYear)
+      let lastSun = Sun(location: location, timeZone: calendar.timeZone, date: lastYear)
 
       sunAtSolstice = Sun(
-        location: location, timeZone: Calendar.current.timeZone, date: lastSun.decemberSolstice)
+        location: location, timeZone: calendar.timeZone, date: lastSun.decemberSolstice)
     } else if date < sun.decemberSolstice {
       sunAtSolstice = Sun(
-        location: location, timeZone: Calendar.current.timeZone, date: sun.juneSolstice)
+        location: location, timeZone: calendar.timeZone, date: sun.juneSolstice)
     } else {
       sunAtSolstice = Sun(
-        location: location, timeZone: Calendar.current.timeZone, date: sun.decemberSolstice)
+        location: location, timeZone: calendar.timeZone, date: sun.decemberSolstice)
     }
   }
 
@@ -38,22 +42,21 @@ struct SolarCalculator {
     sun.civilDusk
   }
 
-  public var nextDayWhenSunIsUp: Date? {
+  public func nextDayWhenSunIsUp() async -> Date? {
     if date > sun.civilDawn {
       return nil
     }
 
-    var d: Date = date
-    let c = Calendar.current
-    while d < sun.juneSolstice {
-      if let cd = c.date(byAdding: .day, value: 1, to: d) {
-        let sunThen = Sun(location: sun.location, timeZone: sun.timeZone, date: cd)
-        if cd > sunThen.civilDawn {
-          return cd
-        }
-        d = cd
-      } else {
-        return nil
+    let cal = DawnCalendar.shared
+    let dawnDates = await cal.getCalendar(
+      forLocation: sun.location, startingAt: pastSolstice, endingAt: sun.juneSolstice,
+      calendar: self.calendar)
+    for dawnDate in dawnDates {
+      if date > dawnDate {
+        continue
+      }
+      if date.secondsSinceMidnight >= dawnDate.secondsSinceMidnight {
+        return dawnDate
       }
     }
     return nil

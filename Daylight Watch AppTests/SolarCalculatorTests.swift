@@ -17,13 +17,18 @@ struct SolarCalculatorTests {
         "2025-01-09 06:35:22+01",
 
         // (sun will never rise this early. expect no preview)
-        "2025-01-09 00:35:22+01",
-      ], [nil, "2025-03-02 06:35:22+01", nil]))
-  func nextDayWhenSunIsUp(currentDate: Date, expectedOutput: Date?) {
-    let location = CLLocation(latitude: 47.35911111, longitude: 8.51980556)
-    let calc = SolarCalculator(forLocation: location, atDate: currentDate)
+        "2025-01-09 01:35:22+01",
+      ], [nil, "2025-03-02 06:34:25+01", nil]))
 
-    #expect(expectedOutput == calc.nextDayWhenSunIsUp)
+  func nextDayWhenSunIsUp(currentDate: Date, expectedOutput: Date?) async {
+    let location = CLLocation(latitude: 47.35911111, longitude: 8.51980556)
+    var calendar = Calendar.current
+    calendar.timeZone = TimeZone(identifier: "Europe/Zurich")!
+    calendar.locale = Locale(identifier: "de_CH")
+    let calc = SolarCalculator(forLocation: location, atDate: currentDate, calendar: calendar)
+    let dawnPreview = await calc.nextDayWhenSunIsUp()
+
+    #expect(expectedOutput == dawnPreview)
   }
 
 }
