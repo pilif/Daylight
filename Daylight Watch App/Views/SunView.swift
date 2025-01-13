@@ -24,9 +24,6 @@ struct SunView: View {
         preview: nil)
       //            Text("Crown Value: \(crownValue) sr=\(calculator.sunrise.formatted(.iso8601))")
     }
-    .task {
-      dawnPreview = await calculator.nextDayWhenSunIsUp()
-    }
     .onReceive(timer) { date in
       self.currentDate = date
       if crownValue == 0.0 {
@@ -36,6 +33,11 @@ struct SunView: View {
     .onChange(of: crownValue) {
       self.displayDate = self.currentDate.addingTimeInterval(
         crownValue.rounded(.down) * 24 * 60 * 60)
+    }
+    .onChange(of: displayDate) {
+      Task {
+        dawnPreview = await calculator.nextDayWhenSunIsUp()
+      }
     }
     .focusable()
     .digitalCrownRotation(
