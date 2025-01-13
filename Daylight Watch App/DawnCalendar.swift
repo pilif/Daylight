@@ -16,14 +16,11 @@ actor DawnCalendar {
     let endingAtRounded = endingAt.timeIntervalSince1970.rounded(.down)
     let tz = calendar.timeZone.identifier
     let id = "\(latRounded),\(longRounded),\(startingAtRounded),\(endingAtRounded),\(tz)"
-    print("Calculated id: \(id)")
 
     if let cal = cachedCalendars[id] {
-      print("Returning cached calendar")
       return cal
     }
     let calendar = await Task {
-      print("Calculating calendar")
 
       var dates: [Date] = []
       let loc = CLLocation(latitude: latRounded, longitude: longRounded)
