@@ -28,7 +28,6 @@ actor DawnCalendar {
       while d < endingAt {
         let cd = calendar.date(byAdding: .day, value: 1, to: d)!
         let sunThen = Sun(location: loc, timeZone: calendar.timeZone, date: cd)
-        print("Adding \(sunThen.civilDawn) to list (tz=\(calendar.timeZone)) (d=\(cd))")
         dates.append(sunThen.civilDawn)
         d = cd
       }
