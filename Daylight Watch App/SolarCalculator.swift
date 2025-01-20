@@ -42,7 +42,7 @@ struct SolarCalculator {
     sun.civilDusk
   }
 
-  public func nextDayWhenSunIsUp() async -> Date? {
+  public func dawnPreview() async -> Date? {
     if date > sun.civilDawn {
       return nil
     }

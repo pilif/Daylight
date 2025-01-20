@@ -36,7 +36,7 @@ struct SunView: View {
     }
     .onChange(of: displayDate) {
       Task {
-        dawnPreview = await calculator.nextDayWhenSunIsUp()
+        dawnPreview = await calculator.dawnPreview()
       }
     }
     .focusable()
