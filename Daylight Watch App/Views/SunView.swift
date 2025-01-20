@@ -6,6 +6,7 @@ struct SunView: View {
   @State var currentDate: Date = Date()
   @State private var crownValue: Double = 0.0
   @State private var currentPreview: (dawn: Date?, dusk: Date?)? = nil
+  @State private var loading: Bool = true
 
   var body: some View {
     let calculator = SolarCalculator(
@@ -14,7 +15,8 @@ struct SunView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     VStack(alignment: .leading) {
-      DateRow(currentDate: currentDate, displayDate: displayDate, offset: $crownValue)
+      DateRow(
+        currentDate: currentDate, displayDate: displayDate, offset: $crownValue, loading: $loading)
       SunRow(
         sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice,
         absolute: calculator.sunrise, preview: currentPreview?.dawn)
@@ -36,7 +38,9 @@ struct SunView: View {
     }
     .onChange(of: displayDate) {
       Task {
+        loading = await !calculator.previewIsAvailable()
         currentPreview = await calculator.dawnPreview()
+        loading = false
       }
     }
     .focusable()

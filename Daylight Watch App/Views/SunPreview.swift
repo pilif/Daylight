@@ -29,8 +29,8 @@ struct SunPreview: View {
   }
 
   private func formatAsDays(date: Date) -> String {
-    let daysLeft = abs(
-      Calendar.current.dateComponents([.day], from: date, to: self.absolute).day ?? 0)
+    let daysLeft =
+      Calendar.current.dateComponents([.day], from: self.absolute, to: date).day ?? 0
 
     let f = DateFormatter()
     f.dateFormat = "HH:mm"
