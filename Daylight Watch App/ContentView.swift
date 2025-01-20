@@ -6,7 +6,7 @@ struct ContentView: View {
   var body: some View {
     switch locationViewModel.authorizationStatus {
     case .notDetermined:
-      AnyView(RequestLocationView())
+      RequestLocationView()
         .environmentObject(locationViewModel)
     case .restricted:
       ErrorView(errorText: "Location use is restricted.")
