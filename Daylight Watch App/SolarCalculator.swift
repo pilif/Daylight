@@ -42,24 +42,52 @@ struct SolarCalculator {
     sun.civilDusk
   }
 
-  public func dawnPreview() async -> Date? {
-    if date > sun.civilDawn {
-      return nil
+  public func previewIsAvailable() async -> Bool {
+    // if we don't really have a preview to show, we don't
+    // need to use the calendar and thus we can assume a dawn
+    // preview to be immediately available
+    if !previewIsNeeded() {
+      return true
+    }
+
+    return await DawnCalendar.shared.hasCached(
+      forLocation: sun.location, startingAt: pastSolstice, endingAt: sun.juneSolstice,
+      calendar: self.calendar)
+  }
+
+  public func dawnPreview() async -> (dawn: Date?, dusk: Date?) {
+
+    if !previewIsNeeded() {
+      return (dawn: nil, dusk: nil)
     }
 
     let cal = DawnCalendar.shared
-    let dawnDates = await cal.getCalendar(
+    let dawnCalendar = await cal.getCalendar(
       forLocation: sun.location, startingAt: pastSolstice, endingAt: sun.juneSolstice,
       calendar: self.calendar)
-    for dawnDate in dawnDates {
-      if date > dawnDate.dawn {
-        continue
-      }
-      if date.secondsSinceMidnight >= dawnDate.dawn.secondsSinceMidnight {
-        return dawnDate.dawn
+
+    for times in dawnCalendar {
+      if date < sun.civilDawn {
+        if date > times.dawn {
+          continue
+        }
+        if date.secondsSinceMidnight >= times.dawn.secondsSinceMidnight {
+          return (dawn: times.dawn, dusk: nil)
+        }
+      } else if date > sun.civilDusk {
+        if times.dusk < sun.civilDusk {
+          continue
+        }
+        if date < times.dusk && date.secondsSinceMidnight <= times.dusk.secondsSinceMidnight {
+          return (dawn: nil, dusk: times.dusk)
+        }
       }
     }
-    return nil
+    return (dawn: nil, dusk: nil)
+  }
+
+  private func previewIsNeeded() -> Bool {
+    return (date <= sun.civilDawn || date >= sun.civilDusk)
   }
 
   public var morningTimeSinceSolistice: TimeInterval {

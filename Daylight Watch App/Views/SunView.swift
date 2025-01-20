@@ -5,7 +5,7 @@ struct SunView: View {
   @State var displayDate: Date = Date()
   @State var currentDate: Date = Date()
   @State private var crownValue: Double = 0.0
-  @State private var dawnPreview: Date? = nil
+  @State private var currentPreview: (dawn: Date?, dusk: Date?)? = nil
 
   var body: some View {
     let calculator = SolarCalculator(
@@ -17,11 +17,11 @@ struct SunView: View {
       DateRow(currentDate: currentDate, displayDate: displayDate, offset: $crownValue)
       SunRow(
         sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice,
-        absolute: calculator.sunrise, preview: dawnPreview)
+        absolute: calculator.sunrise, preview: currentPreview?.dawn)
       Spacer()
       SunRow(
         sunStyle: .sunset, diff: calculator.eveningTimeSinceSolistice, absolute: calculator.sunset,
-        preview: nil)
+        preview: currentPreview?.dusk)
       //            Text("Crown Value: \(crownValue) sr=\(calculator.sunrise.formatted(.iso8601))")
     }
     .onReceive(timer) { date in
@@ -36,7 +36,7 @@ struct SunView: View {
     }
     .onChange(of: displayDate) {
       Task {
-        dawnPreview = await calculator.dawnPreview()
+        currentPreview = await calculator.dawnPreview()
       }
     }
     .focusable()
