@@ -52,11 +52,11 @@ struct SolarCalculator {
       forLocation: sun.location, startingAt: pastSolstice, endingAt: sun.juneSolstice,
       calendar: self.calendar)
     for dawnDate in dawnDates {
-      if date > dawnDate {
+      if date > dawnDate.dawn {
         continue
       }
-      if date.secondsSinceMidnight >= dawnDate.secondsSinceMidnight {
-        return dawnDate
+      if date.secondsSinceMidnight >= dawnDate.dawn.secondsSinceMidnight {
+        return dawnDate.dawn
       }
     }
     return nil

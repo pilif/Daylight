@@ -3,12 +3,12 @@ import Foundation
 import SunKit
 
 actor DawnCalendar {
-  private var cachedCalendars: [String: [Date]] = [:]
+  private var cachedCalendars: [String: [(dawn: Date, dusk: Date)]] = [:]
 
   func getCalendar(
     forLocation: CLLocation, startingAt: Date,
     endingAt: Date, calendar: Calendar = .current
-  ) async -> [Date] {
+  ) async -> [(dawn: Date, dusk: Date)] {
     let latRounded = (forLocation.coordinate.latitude * 1000).rounded(.down) / 1000
     let longRounded = (forLocation.coordinate.longitude * 1000).rounded(.down) / 1000
 
@@ -22,13 +22,13 @@ actor DawnCalendar {
     }
     let calendar = await Task {
 
-      var dates: [Date] = []
+      var dates: [(dawn: Date, dusk: Date)] = []
       let loc = CLLocation(latitude: latRounded, longitude: longRounded)
       var d = startingAt
       while d < endingAt {
         let cd = calendar.date(byAdding: .day, value: 1, to: d)!
         let sunThen = Sun(location: loc, timeZone: calendar.timeZone, date: cd)
-        dates.append(sunThen.civilDawn)
+        dates.append((dawn: sunThen.civilDawn, dusk: sunThen.civilDusk))
         d = cd
       }
       return dates
