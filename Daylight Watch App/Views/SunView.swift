@@ -15,21 +15,24 @@ struct SunView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     VStack(alignment: .leading) {
+      //      Text(displayDate.formatted(.iso8601))
       DateRow(
         currentDate: currentDate, displayDate: displayDate, offset: $crownValue, loading: $loading)
       SunRow(
         sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice,
-        absolute: calculator.sunrise, preview: currentPreview?.dawn)
+        absolute: calculator.sunrise, preview: currentPreview?.dawn,
+        countdown: opinionatedCountdown(pure: calculator.countdown))
       Spacer()
       SunRow(
         sunStyle: .sunset, diff: calculator.eveningTimeSinceSolistice, absolute: calculator.sunset,
-        preview: currentPreview?.dusk)
-      //            Text("Crown Value: \(crownValue) sr=\(calculator.sunrise.formatted(.iso8601))")
+        preview: currentPreview?.dusk, countdown: .none)
     }
     .onReceive(timer) { date in
-      self.currentDate = date
+      let debugDate = date  //date.addingTimeInterval(-11 * 60 * 60 + (70 * 60));
+
+      self.currentDate = debugDate
       if crownValue == 0.0 {
-        self.displayDate = date
+        self.displayDate = debugDate
       }
     }
     .onChange(of: crownValue) {
@@ -47,5 +50,14 @@ struct SunView: View {
     .digitalCrownRotation(
       $crownValue, from: -30, through: 30, by: 1, sensitivity: .low, isContinuous: false,
       isHapticFeedbackEnabled: true)
+  }
+
+  func opinionatedCountdown(pure: TwilightCountdown) -> TwilightCountdown {
+    switch pure {
+    case .none:
+      return .none
+    case .civil(let ti), .nautical(let ti):
+      return ti > 60 * 60 ? .none : pure
+    }
   }
 }

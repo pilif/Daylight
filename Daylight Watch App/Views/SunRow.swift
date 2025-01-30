@@ -5,6 +5,7 @@ struct SunRow: View {
   let diff: TimeInterval
   let absolute: Date
   let preview: Date?
+  let countdown: TwilightCountdown
 
   var body: some View {
     HStack {
@@ -14,25 +15,17 @@ struct SunRow: View {
         .scaledToFit()
         .frame(width: 64.0)
       Spacer()
-      VStack(alignment: .trailing) {
-        Text("\(formattedDiff)")
-          .font(.title3)
-
-        if let preview {
-          SunPreview(absolute: absolute, preview: preview)
-        } else {
-          Text("\(formattedDate)")
-            .font(.footnote)
-        }
+      switch countdown {
+      case .none:
+        SunInfo(formattedDiff: formattedDiff, absolute: self.absolute, preview: self.preview)
+      case .civil(let ti):
+        TwilightCountdownView(
+          label: "Civil", at: ti, absolute: self.absolute, preview: self.preview)
+      case .nautical(let ti):
+        TwilightCountdownView(
+          label: "Nautical", at: ti, absolute: self.absolute, preview: self.preview)
       }
-
     }
-  }
-
-  private var formattedDate: String {
-    let f = DateFormatter()
-    f.dateFormat = "HH:mm"
-    return f.string(from: absolute)
   }
 
   private var formattedDiff: String {
@@ -47,7 +40,10 @@ struct SunRow: View {
     return "\(prefix)\(str)"
   }
 
-  init(sunStyle: SunStyle, diff: TimeInterval, absolute: Date, preview: Date?) {
+  init(
+    sunStyle: SunStyle, diff: TimeInterval, absolute: Date, preview: Date?,
+    countdown: TwilightCountdown
+  ) {
     systemName =
       switch sunStyle {
       case .sunrise:
@@ -58,6 +54,7 @@ struct SunRow: View {
     self.diff = diff
     self.absolute = absolute
     self.preview = preview
+    self.countdown = countdown
   }
 }
 
@@ -66,18 +63,21 @@ struct SunRow: View {
     sunStyle: .sunrise,
     diff: 101.0,
     absolute: "2025-01-07 07:37:09",
-    preview: nil
+    preview: nil,
+    countdown: .none
   )
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
     absolute: "2025-01-07 07:37:09",
-    preview: "2025-01-11 06:35:22"
+    preview: "2025-01-11 06:35:22",
+    countdown: .none
   )
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
     absolute: "2025-01-07 07:37:09",
-    preview: "2025-01-16 01:00:00+01"
+    preview: "2025-01-16 01:00:00+01",
+    countdown: .nautical(in: 60)
   )
 }

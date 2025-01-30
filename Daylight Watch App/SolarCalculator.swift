@@ -42,6 +42,17 @@ struct SolarCalculator {
     sun.civilDusk
   }
 
+  public var countdown: TwilightCountdown {
+    if date > sun.civilDawn {
+      print("\(date) > \(sun.civilDawn) returning nil")
+      return .none
+    }
+    if date > sun.nauticalDawn {
+      return .civil(in: sun.civilDawn.timeIntervalSince(date))
+    }
+    return .nautical(in: sun.nauticalDawn.timeIntervalSince(date))
+  }
+
   public func previewIsAvailable() async -> Bool {
     // if we don't really have a preview to show, we don't
     // need to use the calendar and thus we can assume a dawn
