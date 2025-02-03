@@ -1,9 +1,10 @@
 import SwiftUI
 
 struct SunView: View {
+  let currentDate: Date
+
   @EnvironmentObject var locationViewModel: Location
-  @State var displayDate: Date = Date()
-  @State var currentDate: Date = Date()
+  @State var displayDate: Date
   @State private var crownValue: Double = 0.0
   @State private var currentPreview: (dawn: Date?, dusk: Date?)? = nil
   @State private var loading: Bool = true
@@ -12,7 +13,6 @@ struct SunView: View {
     let calculator = SolarCalculator(
       forLocation: locationViewModel.lastSeenLocation ?? CLLocation(latitude: 0, longitude: 0),
       atDate: self.displayDate)
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     VStack(alignment: .leading) {
       //      Text(displayDate.formatted(.iso8601))
@@ -27,17 +27,14 @@ struct SunView: View {
         sunStyle: .sunset, diff: calculator.eveningTimeSinceSolistice, absolute: calculator.sunset,
         preview: currentPreview?.dusk, countdown: .none)
     }
-    .onReceive(timer) { date in
-      let debugDate = date  //date.addingTimeInterval(-11 * 60 * 60 + (70 * 60));
-
-      self.currentDate = debugDate
-      if crownValue == 0.0 {
-        self.displayDate = debugDate
-      }
-    }
     .onChange(of: crownValue) {
       self.displayDate = self.currentDate.addingTimeInterval(
         crownValue.rounded(.down) * 24 * 60 * 60)
+    }
+    .onChange(of: currentDate) {
+      if crownValue.rounded(.down) == 0 {
+        displayDate = currentDate
+      }
     }
     .onChange(of: displayDate) {
       Task {
@@ -59,5 +56,10 @@ struct SunView: View {
     case .civil(let ti), .nautical(let ti):
       return ti > 60 * 60 ? .none : pure
     }
+  }
+
+  public init(currentDate: Date) {
+    self.currentDate = currentDate
+    self.displayDate = currentDate
   }
 }
