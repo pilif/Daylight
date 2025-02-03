@@ -8,13 +8,10 @@ struct TwilightCountdownView: View {
   let preview: Date?
 
   var body: some View {
-    VStack {
+    VStack(alignment: .trailing) {
 
       HStack {
-        Text(label)
-          .font(.caption)
-        Spacer()
-        Text(formattedInterval(interval: at))
+        Text("\(label) in \(formattedInterval(interval: at))")
           .font(.caption)
       }
       HStack {
