@@ -44,7 +44,6 @@ struct SolarCalculator {
 
   public var countdown: TwilightCountdown {
     if date > sun.civilDawn {
-      print("\(date) > \(sun.civilDawn) returning nil")
       return .none
     }
     if date > sun.nauticalDawn {
