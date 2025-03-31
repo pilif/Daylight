@@ -1,7 +1,7 @@
 import Foundation
 
 extension Date: @retroactive ExpressibleByStringLiteral {
-  public init(stringLiteral value: String) {
+  public init(stringLiteral value: StaticString) {
     let formatterWithTime = ISO8601DateFormatter()
     formatterWithTime.formatOptions = [
       .withFullDate,
@@ -18,8 +18,8 @@ extension Date: @retroactive ExpressibleByStringLiteral {
       .withDashSeparatorInDate,
     ]
     self =
-      formatterWithTime.date(from: value)
-      ?? formatterDateOnly.date(from: value)
+      formatterWithTime.date(from: "\(value)")
+      ?? formatterDateOnly.date(from: "\(value)")
       ?? Date(timeIntervalSince1970: 1)
   }
 }
