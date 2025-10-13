@@ -18,7 +18,11 @@ struct SolarCalculatorTests {
 
         // (sun will never rise this early. expect no preview)
         "2025-01-09 01:35:22+01",
-      ], [nil, "2025-03-02 06:34:25+01", nil]))
+
+        // we're in autumn now - will have to wait a long time 😢
+        "2025-11-22 07:00:22+01",
+
+      ], [nil, "2025-03-02 06:34:25+01", nil, "2026-02-16 06:59:05+01"]))
 
   func dawnPreview(currentDate: Date, expectedOutput: Date?) async {
     let location = CLLocation(latitude: 47.35911111, longitude: 8.51980556)
@@ -42,7 +46,11 @@ struct SolarCalculatorTests {
 
         // (set this late. expect no preview)
         "2025-01-20 23:35:22+01",
-      ], [nil, "2025-02-14 18:20:12+01", nil]))
+
+        // autumn now. we'll have to wait a looong time 😢
+        "2025-11-22 18:33:22+02",
+
+      ], [nil, "2025-02-14 18:20:12+01", nil, "2026-02-24 18:34:32+01"]))
 
   func duskPreview(currentDate: Date, expectedOutput: Date?) async {
     let location = CLLocation(latitude: 47.35911111, longitude: 8.51980556)

@@ -5,6 +5,7 @@ struct SolarCalculator {
   private let date: Date
   private let sun: Sun
   private let sunAtSolstice: Sun
+  private let sunAtNextSummerSolstice: Sun
   private let calendar: Calendar
 
   public init(
@@ -14,6 +15,7 @@ struct SolarCalculator {
     self.date = date
     self.calendar = calendar
 
+    // Calculate past solstice (for time-since-solstice calculations)
     if date < sun.decemberSolstice && date < sun.juneSolstice {
       let lastYear = Calendar.current.date(byAdding: DateComponents(year: -1), to: date)!
 
@@ -28,10 +30,27 @@ struct SolarCalculator {
       sunAtSolstice = Sun(
         location: location, timeZone: calendar.timeZone, date: sun.decemberSolstice)
     }
+
+    // Calculate next summer solstice (for preview calculations)
+    if date < sun.juneSolstice {
+      // We're before this year's summer solstice
+      sunAtNextSummerSolstice = Sun(
+        location: location, timeZone: calendar.timeZone, date: sun.juneSolstice)
+    } else {
+      // We're after this year's summer solstice, get next year's
+      let nextYear = Calendar.current.date(byAdding: DateComponents(year: 1), to: date)!
+      let nextSun = Sun(location: location, timeZone: calendar.timeZone, date: nextYear)
+      sunAtNextSummerSolstice = Sun(
+        location: location, timeZone: calendar.timeZone, date: nextSun.juneSolstice)
+    }
   }
 
   public var pastSolstice: Date {
     sunAtSolstice.date
+  }
+
+  public var nextSummerSolstice: Date {
+    sunAtNextSummerSolstice.date
   }
 
   public var sunrise: Date {
@@ -61,7 +80,7 @@ struct SolarCalculator {
     }
 
     return await DawnCalendar.shared.hasCached(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: sun.juneSolstice,
+      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
       calendar: self.calendar)
   }
 
@@ -73,7 +92,7 @@ struct SolarCalculator {
 
     let cal = DawnCalendar.shared
     let dawnCalendar = await cal.getCalendar(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: sun.juneSolstice,
+      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
       calendar: self.calendar)
 
     for times in dawnCalendar {
