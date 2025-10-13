@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,14 +38,12 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		761EBFDC2D2D044C00DBF604 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
+			dstSubfolder = Product;
 			files = (
 				761EBFB42D2D044B00DBF604 /* Daylight Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -78,25 +76,19 @@
 /* Begin PBXFrameworksBuildPhase section */
 		761EBFB02D2D044B00DBF604 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				76379D162D2D209D00799374 /* SunKit in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFC22D2D044C00DBF604 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFCC2D2D044C00DBF604 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -147,8 +139,6 @@
 				761EBFB62D2D044B00DBF604 /* PBXTargetDependency */,
 			);
 			name = Daylight;
-			packageProductDependencies = (
-			);
 			productName = Daylight;
 			productReference = 761EBFAD2D2D044B00DBF604 /* Daylight.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
@@ -162,8 +152,6 @@
 				761EBFB12D2D044B00DBF604 /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
 				761EBFB72D2D044B00DBF604 /* Daylight Watch App */,
@@ -193,8 +181,6 @@
 				761EBFC82D2D044C00DBF604 /* Daylight Watch AppTests */,
 			);
 			name = "Daylight Watch AppTests";
-			packageProductDependencies = (
-			);
 			productName = "Daylight Watch AppTests";
 			productReference = 761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -216,8 +202,6 @@
 				761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */,
 			);
 			name = "Daylight Watch AppUITests";
-			packageProductDependencies = (
-			);
 			productName = "Daylight Watch AppUITests";
 			productReference = 761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -260,7 +244,7 @@
 			packageReferences = (
 				76379D142D2D208100799374 /* XCRemoteSwiftPackageReference "SunKit" */,
 			);
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = 761EBFAE2D2D044B00DBF604 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,55 +260,41 @@
 /* Begin PBXResourcesBuildPhase section */
 		761EBFAB2D2D044B00DBF604 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFB12D2D044B00DBF604 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFC32D2D044C00DBF604 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFCD2D2D044C00DBF604 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		761EBFAF2D2D044B00DBF604 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFC12D2D044C00DBF604 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		761EBFCB2D2D044C00DBF604 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -347,7 +317,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		761EBFD72D2D044C00DBF604 /* Debug */ = {
+		761EBFD72D2D044C00DBF604 /* Debug configuration for PBXProject "Daylight" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -411,7 +381,7 @@
 			};
 			name = Debug;
 		};
-		761EBFD82D2D044C00DBF604 /* Release */ = {
+		761EBFD82D2D044C00DBF604 /* Release configuration for PBXProject "Daylight" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -467,14 +437,16 @@
 			};
 			name = Release;
 		};
-		761EBFDA2D2D044C00DBF604 /* Debug */ = {
+		761EBFDA2D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight Watch App" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Daylight Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = R9U6Q6F846;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Daylight-Watch-App-Info.plist";
@@ -490,6 +462,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -499,14 +472,16 @@
 			};
 			name = Debug;
 		};
-		761EBFDB2D2D044C00DBF604 /* Release */ = {
+		761EBFDB2D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight Watch App" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Daylight Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = R9U6Q6F846;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Daylight-Watch-App-Info.plist";
@@ -522,6 +497,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -532,7 +508,7 @@
 			};
 			name = Release;
 		};
-		761EBFDE2D2D044C00DBF604 /* Debug */ = {
+		761EBFDE2D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -546,7 +522,7 @@
 			};
 			name = Debug;
 		};
-		761EBFDF2D2D044C00DBF604 /* Release */ = {
+		761EBFDF2D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -561,7 +537,7 @@
 			};
 			name = Release;
 		};
-		761EBFE12D2D044C00DBF604 /* Debug */ = {
+		761EBFE12D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight Watch AppTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -580,7 +556,7 @@
 			};
 			name = Debug;
 		};
-		761EBFE22D2D044C00DBF604 /* Release */ = {
+		761EBFE22D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight Watch AppTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -600,7 +576,7 @@
 			};
 			name = Release;
 		};
-		761EBFE42D2D044C00DBF604 /* Debug */ = {
+		761EBFE42D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight Watch AppUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -618,7 +594,7 @@
 			};
 			name = Debug;
 		};
-		761EBFE52D2D044C00DBF604 /* Release */ = {
+		761EBFE52D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight Watch AppUITests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -643,46 +619,41 @@
 		761EBFAA2D2D044B00DBF604 /* Build configuration list for PBXProject "Daylight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				761EBFD72D2D044C00DBF604 /* Debug */,
-				761EBFD82D2D044C00DBF604 /* Release */,
+				761EBFD72D2D044C00DBF604 /* Debug configuration for PBXProject "Daylight" */,
+				761EBFD82D2D044C00DBF604 /* Release configuration for PBXProject "Daylight" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		761EBFD92D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				761EBFDA2D2D044C00DBF604 /* Debug */,
-				761EBFDB2D2D044C00DBF604 /* Release */,
+				761EBFDA2D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight Watch App" */,
+				761EBFDB2D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight Watch App" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		761EBFDD2D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				761EBFDE2D2D044C00DBF604 /* Debug */,
-				761EBFDF2D2D044C00DBF604 /* Release */,
+				761EBFDE2D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight" */,
+				761EBFDF2D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		761EBFE02D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch AppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				761EBFE12D2D044C00DBF604 /* Debug */,
-				761EBFE22D2D044C00DBF604 /* Release */,
+				761EBFE12D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight Watch AppTests" */,
+				761EBFE22D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight Watch AppTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		761EBFE32D2D044C00DBF604 /* Build configuration list for PBXNativeTarget "Daylight Watch AppUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				761EBFE42D2D044C00DBF604 /* Debug */,
-				761EBFE52D2D044C00DBF604 /* Release */,
+				761EBFE42D2D044C00DBF604 /* Debug configuration for PBXNativeTarget "Daylight Watch AppUITests" */,
+				761EBFE52D2D044C00DBF604 /* Release configuration for PBXNativeTarget "Daylight Watch AppUITests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
