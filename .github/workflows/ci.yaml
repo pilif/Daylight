@@ -5,7 +5,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   lint:
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
     - uses: actions/checkout@v4
     - name: Set up Xcode version
@@ -17,7 +17,7 @@ jobs:
           --recursive \
           --strict
   unit-tests:
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
     - uses: actions/checkout@v4
 #    - name: List available Xcode versions
