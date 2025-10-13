@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -xeuo pipefail
 
 if [ -d result ]; then
     rm -r result
@@ -8,7 +8,11 @@ fi
 
 mkdir -p result
 
-id="$(xcodebuild test -showdestinations -scheme "Daylight Watch App" -target "Daylight Watch AppTests" | grep "watchOS Simulator" | grep "Apple Watch Series 10 (46mm)" | head -n 1 | grep -Eo 'id:.*?,' | sed  's/id://' | sed 's/,$//')"
+xcodebuild test -showdestinations -scheme "Daylight Watch App" -target "Daylight Watch AppTests"
+
+id="$(xcodebuild test -showdestinations -scheme "Daylight Watch App" -target "Daylight Watch AppTests" | grep "watchOS Simulator" | grep "Apple Watch Series 11 (46mm)" | head -n 1 | grep -Eo 'id:.*?,' | sed  's/id://' | sed 's/,$//')"
+echo "Running on destination $id"
+
 xcodebuild test \
     -scheme "Daylight Watch App" \
     -target "Daylight Watch AppTests" \
