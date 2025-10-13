@@ -84,6 +84,42 @@ struct SolarCalculator {
       calendar: self.calendar)
   }
 
+  public func sameDiffPreview() async -> (dawn: Date?, dusk: Date?) {
+    var dawn: Date?
+    var dusk: Date?
+
+    let needDawnPreview = morningTimeSinceSolistice < 0
+    let needDuskPreview = eveningTimeSinceSolistice < 0
+
+    if !needDawnPreview && !needDuskPreview {
+      return (dawn: nil, dusk: nil)
+    }
+
+    let cal = DawnCalendar.shared
+    let dawnCalendar = await cal.getCalendar(
+      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
+      calendar: self.calendar)
+
+    for times in dawnCalendar {
+      if needDawnPreview && dawn == nil
+        && calendar.startOfDay(for: times.dawn) > calendar.startOfDay(for: date)
+        && times.dawn.secondsSinceMidnight < self.sunrise.secondsSinceMidnight
+      {
+        dawn = times.dawn
+      }
+      if needDuskPreview && dusk == nil
+        && calendar.startOfDay(for: times.dusk) > calendar.startOfDay(for: date)
+        && times.dusk.secondsSinceMidnight > self.sunset.secondsSinceMidnight
+      {
+        dusk = times.dusk
+      }
+      if dusk != nil && dawn != nil {
+        break
+      }
+    }
+    return (dawn: dawn, dusk: dusk)
+  }
+
   public func dawnPreview() async -> (dawn: Date?, dusk: Date?) {
 
     if !previewIsNeeded() {

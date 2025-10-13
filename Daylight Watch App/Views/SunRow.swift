@@ -3,6 +3,7 @@ import SwiftUI
 struct SunRow: View {
   let systemName: String
   let diff: TimeInterval
+  let diffPreview: Date?
   let absolute: Date
   let preview: Date?
   let countdown: TwilightCountdown
@@ -29,6 +30,16 @@ struct SunRow: View {
   }
 
   private var formattedDiff: String {
+    if diff < 0 {
+      if let diffPreview = diffPreview {
+        let f = DateFormatter()
+        f.dateFormat = "MMM, dd"
+        if let s = f.string(for: diffPreview) {
+          return s
+        }
+      }
+    }
+
     let str =
       (abs(diff) > 60 * 60)
       ? Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .hourMinute))
@@ -41,7 +52,7 @@ struct SunRow: View {
   }
 
   init(
-    sunStyle: SunStyle, diff: TimeInterval, absolute: Date, preview: Date?,
+    sunStyle: SunStyle, diff: TimeInterval, diffPreview: Date?, absolute: Date, preview: Date?,
     countdown: TwilightCountdown
   ) {
     systemName =
@@ -52,6 +63,7 @@ struct SunRow: View {
         "sunset.fill"
       }
     self.diff = diff
+    self.diffPreview = diffPreview
     self.absolute = absolute
     self.preview = preview
     self.countdown = countdown
@@ -61,14 +73,16 @@ struct SunRow: View {
 #Preview {
   SunRow(
     sunStyle: .sunrise,
-    diff: 101.0,
-    absolute: "2025-01-07 07:37:09",
+    diff: -101.0,
+    diffPreview: "2026-03-12 07:37:09",
+    absolute: "2025-10-13 07:37:09",
     preview: nil,
     countdown: .none
   )
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
+    diffPreview: nil,
     absolute: "2025-01-07 07:37:09",
     preview: "2025-01-11 06:35:22",
     countdown: .none
@@ -76,6 +90,7 @@ struct SunRow: View {
   SunRow(
     sunStyle: .sunrise,
     diff: 101.0,
+    diffPreview: nil,
     absolute: "2025-01-07 07:37:09",
     preview: "2025-01-16 01:00:00+01",
     countdown: .nautical(in: 60)

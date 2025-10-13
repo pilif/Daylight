@@ -7,6 +7,7 @@ struct SunView: View {
   @State var displayDate: Date
   @State private var crownValue: Double = 0.0
   @State private var currentPreview: (dawn: Date?, dusk: Date?)? = nil
+  @State private var currentDiffPreview: (dawn: Date?, dusk: Date?)? = nil
   @State private var loading: Bool = true
 
   var body: some View {
@@ -19,13 +20,21 @@ struct SunView: View {
       DateRow(
         currentDate: currentDate, displayDate: displayDate, offset: $crownValue, loading: $loading)
       SunRow(
-        sunStyle: .sunrise, diff: calculator.morningTimeSinceSolistice,
-        absolute: calculator.sunrise, preview: currentPreview?.dawn,
+        sunStyle: .sunrise,
+        diff: calculator.morningTimeSinceSolistice,
+        diffPreview: currentDiffPreview?.dawn,
+        absolute: calculator.sunrise,
+        preview: currentPreview?.dawn,
         countdown: opinionatedCountdown(pure: calculator.countdown))
       Spacer()
       SunRow(
-        sunStyle: .sunset, diff: calculator.eveningTimeSinceSolistice, absolute: calculator.sunset,
-        preview: currentPreview?.dusk, countdown: .none)
+        sunStyle: .sunset,
+        diff: calculator.eveningTimeSinceSolistice,
+        diffPreview: currentDiffPreview?.dusk,
+        absolute: calculator.sunset,
+        preview: currentPreview?.dusk,
+        countdown: .none
+      )
     }
     .onChange(of: crownValue) {
       self.displayDate = self.currentDate.addingTimeInterval(
@@ -40,6 +49,7 @@ struct SunView: View {
       Task {
         loading = await !calculator.previewIsAvailable()
         currentPreview = await calculator.dawnPreview()
+        currentDiffPreview = await calculator.sameDiffPreview()
         loading = false
       }
     }
