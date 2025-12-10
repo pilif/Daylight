@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SunRow: View {
   let systemName: String
-  let diff: TimeInterval
+  let diff: TimeInterval?
   let diffPreview: Date?
   let absolute: Date
   let preview: Date?
@@ -30,29 +30,39 @@ struct SunRow: View {
   }
 
   private var formattedDiff: String {
-    if diff < 0 {
-      if let diffPreview = diffPreview {
-        let f = DateFormatter()
-        f.dateFormat = "MMM, dd"
-        if let s = f.string(for: diffPreview) {
-          return s
-        }
+    if let diffPreview = diffPreview {
+      let f = DateFormatter()
+      f.dateFormat = "MMM, dd"
+      if let s = f.string(for: diffPreview) {
+        return s
       }
     }
+    guard let diff else {
+      let f = DateFormatter()
+      f.dateFormat = "HH:mm"
+      return f.string(from: absolute)
+    }
 
-    let str =
-      (abs(diff) > 60 * 60)
-      ? Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .hourMinute))
+    let absDiff = abs(diff)
+    var str: String
+    if absDiff > 60 * 60 {
+      str =
+        Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .hourMinute))
         + " h"
-      : Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .minuteSecond))
+    } else if absDiff >= 60 {
+      str =
+        Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .minuteSecond))
         + " min"
+    } else {
+      str = "\(Int(absDiff.rounded())) s"
+    }
     let prefix = diff >= 0 ? "+" : ""
 
     return "\(prefix)\(str)"
   }
 
   init(
-    sunStyle: SunStyle, diff: TimeInterval, diffPreview: Date?, absolute: Date, preview: Date?,
+    sunStyle: SunStyle, diff: TimeInterval?, diffPreview: Date?, absolute: Date, preview: Date?,
     countdown: TwilightCountdown
   ) {
     systemName =

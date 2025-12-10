@@ -9,6 +9,8 @@ struct SunView: View {
   @State private var currentPreview: (dawn: Date?, dusk: Date?)? = nil
   @State private var currentDiffPreview: (dawn: Date?, dusk: Date?)? = nil
   @State private var loading: Bool = true
+  @State private var morningDiff: TimeInterval? = nil
+  @State private var eveningDiff: TimeInterval? = nil
 
   var body: some View {
     let calculator = SolarCalculator(
@@ -21,7 +23,7 @@ struct SunView: View {
         currentDate: currentDate, displayDate: displayDate, offset: $crownValue, loading: $loading)
       SunRow(
         sunStyle: .sunrise,
-        diff: calculator.morningTimeSinceSolistice,
+        diff: morningDiff,
         diffPreview: currentDiffPreview?.dawn,
         absolute: calculator.sunrise,
         preview: currentPreview?.dawn,
@@ -29,7 +31,7 @@ struct SunView: View {
       Spacer()
       SunRow(
         sunStyle: .sunset,
-        diff: calculator.eveningTimeSinceSolistice,
+        diff: eveningDiff,
         diffPreview: currentDiffPreview?.dusk,
         absolute: calculator.sunset,
         preview: currentPreview?.dusk,
@@ -50,6 +52,8 @@ struct SunView: View {
         loading = await !calculator.previewIsAvailable()
         currentPreview = await calculator.dawnPreview()
         currentDiffPreview = await calculator.sameDiffPreview()
+        morningDiff = await calculator.morningTimeSinceExtreme()
+        eveningDiff = await calculator.eveningTimeSinceExtreme()
         loading = false
       }
     }
