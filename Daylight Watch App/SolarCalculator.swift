@@ -88,10 +88,11 @@ struct SolarCalculator {
     var dawn: Date?
     var dusk: Date?
 
-    let morningDiff = await morningTimeSinceExtreme()
-    let eveningDiff = await eveningTimeSinceExtreme()
-    let needDawnPreview = morningDiff < 0
-    let needDuskPreview = eveningDiff < 0
+    let latestSunrise = await latestSunrise()
+    let earliestSunset = await earliestSunset()
+
+    let needDawnPreview = date < latestSunrise
+    let needDuskPreview = date < earliestSunset
 
     if !needDawnPreview && !needDuskPreview {
       return (dawn: nil, dusk: nil)
@@ -119,7 +120,11 @@ struct SolarCalculator {
         break
       }
     }
-    return (dawn: dawn, dusk: dusk)
+
+    let dawnPreview = needDawnPreview ? dawn : nil
+    let duskPreview = needDuskPreview ? dusk : nil
+
+    return (dawn: dawnPreview, dusk: duskPreview)
   }
 
   public func dawnPreview() async -> (dawn: Date?, dusk: Date?) {
