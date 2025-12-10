@@ -23,7 +23,7 @@ struct SunView: View {
         currentDate: currentDate, displayDate: displayDate, offset: $crownValue, loading: $loading)
       SunRow(
         sunStyle: .sunrise,
-        diff: morningDiff ?? 0,
+        diff: morningDiff,
         diffPreview: currentDiffPreview?.dawn,
         absolute: calculator.sunrise,
         preview: currentPreview?.dawn,
@@ -31,7 +31,7 @@ struct SunView: View {
       Spacer()
       SunRow(
         sunStyle: .sunset,
-        diff: eveningDiff ?? 0,
+        diff: eveningDiff,
         diffPreview: currentDiffPreview?.dusk,
         absolute: calculator.sunset,
         preview: currentPreview?.dusk,

@@ -8,12 +8,14 @@ struct SunInfo: View {
 
   var body: some View {
     VStack(alignment: .trailing) {
+      let d = formattedDate
+
       Text("\(formattedDiff)")
         .font(.title3)
 
       if let preview {
         SunPreview(absolute: absolute, preview: preview)
-      } else {
+      } else if d != formattedDiff {
         Text("\(formattedDate)")
           .font(.footnote)
       }
