@@ -4,6 +4,7 @@ import SunKit
 
 actor DawnCalendarProvider {
   private var cachedCalendars: [String: DawnCalendar] = [:]
+  private var calculating: [String: Bool] = [:]
 
   func hasCached(
     forSun: Sun,
@@ -21,6 +22,20 @@ actor DawnCalendarProvider {
     if let cal = cachedCalendars[id] {
       return cal
     }
+    if calculating[id] != nil {
+      var maxwait = 10
+      while cachedCalendars[id] == nil && maxwait > 0 {
+        do {
+          try await Task.sleep(for: .seconds(3))
+        } catch {
+        }
+        maxwait -= 1
+      }
+      if let cal = cachedCalendars[id] {
+        return cal
+      }
+    }
+    calculating[id] = true
     let calendar = await Task {
       var times: [(dawn: Date, dusk: Date)] = []
       var d = startDate(forSun: forSun)
@@ -53,6 +68,8 @@ actor DawnCalendarProvider {
       cachedCalendars.removeAll()
     }
     cachedCalendars[id] = calendar
+    calculating[id] = nil
+
     return calendar
   }
 
