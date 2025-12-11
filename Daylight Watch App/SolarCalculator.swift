@@ -79,9 +79,8 @@ struct SolarCalculator {
       return true
     }
 
-    return await DawnCalendar.shared.hasCached(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
-      calendar: self.calendar)
+    return await DawnCalendarProvider.shared.hasCached(
+      forSun: sun, calendar: self.calendar)
   }
 
   public func sameDiffPreview() async -> (dawn: Date?, dusk: Date?) {
@@ -98,12 +97,12 @@ struct SolarCalculator {
       return (dawn: nil, dusk: nil)
     }
 
-    let cal = DawnCalendar.shared
+    let cal = DawnCalendarProvider.shared
     let dawnCalendar = await cal.getCalendar(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
-      calendar: self.calendar)
+      forSun: sun, calendar: self.calendar
+    )
 
-    for times in dawnCalendar {
+    for times in dawnCalendar.times {
       if needDawnPreview && dawn == nil
         && calendar.startOfDay(for: times.dawn) > calendar.startOfDay(for: date)
         && times.dawn.secondsSinceMidnight < self.sunrise.secondsSinceMidnight
@@ -133,12 +132,12 @@ struct SolarCalculator {
       return (dawn: nil, dusk: nil)
     }
 
-    let cal = DawnCalendar.shared
+    let cal = DawnCalendarProvider.shared
     let dawnCalendar = await cal.getCalendar(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
+      forSun: sun,
       calendar: self.calendar)
 
-    for times in dawnCalendar {
+    for times in dawnCalendar.times {
       if date < sun.civilDawn {
         if date > times.dawn {
           continue
@@ -183,76 +182,20 @@ struct SolarCalculator {
   }
 
   public func latestSunrise() async -> Date {
-    let dawnCalendar = await DawnCalendar.shared.getCalendar(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
-      calendar: self.calendar)
-
-    var latestDawn: Date?
-    var latestSeconds = 0
-    let decemberSolstice = getDecemberSolstice()
-    let earliest = calendar.date(byAdding: .day, value: -30, to: decemberSolstice)
-    let latest = calendar.date(byAdding: .day, value: +30, to: decemberSolstice)
-
-    if let earliest, let latest {
-      for times in dawnCalendar {
-        if times.dawn < earliest {
-          continue
-        }
-        if times.dawn > latest {
-          break
-        }
-        let seconds = times.dawn.secondsSinceMidnight
-        if latestDawn == nil || seconds > latestSeconds {
-          latestDawn = times.dawn
-          latestSeconds = seconds
-        }
-      }
-    }
-
-    return latestDawn ?? sun.civilDawn
+    let dawnCalendar = await DawnCalendarProvider.shared.getCalendar(
+      forSun: sun,
+      calendar: self.calendar
+    )
+    return dawnCalendar.latestDawn
   }
 
   public func earliestSunset() async -> Date {
-    let dawnCalendar = await DawnCalendar.shared.getCalendar(
-      forLocation: sun.location, startingAt: pastSolstice, endingAt: nextSummerSolstice,
-      calendar: self.calendar)
-
-    var earliestDusk: Date?
-    var earliestSeconds = Int.max
-    let decemberSolstice = getDecemberSolstice()
-    let earliest = calendar.date(byAdding: .day, value: -30, to: decemberSolstice)
-    let latest = calendar.date(byAdding: .day, value: +30, to: decemberSolstice)
-    if let earliest, let latest {
-      for times in dawnCalendar {
-        if times.dawn < earliest {
-          continue
-        }
-        if times.dawn > latest {
-          break
-        }
-
-        let seconds = times.dusk.secondsSinceMidnight
-        if earliestDusk == nil || seconds < earliestSeconds {
-          earliestDusk = times.dusk
-          earliestSeconds = seconds
-        }
-      }
-    }
-
-    return earliestDusk ?? sun.civilDusk
+    let dawnCalendar = await DawnCalendarProvider.shared.getCalendar(
+      forSun: sun,
+      calendar: self.calendar
+    )
+    return dawnCalendar.earliestDusk
   }
-
-  private func getDecemberSolstice() -> Date {
-    // If sunAtSolstice is already December solstice, use it
-    // Otherwise (it's June), we need the previous December
-    let solsticeMonth = calendar.component(.month, from: sunAtSolstice.date)
-    if solsticeMonth == 12 {
-      return sunAtSolstice.date
-    } else {
-      return sunAtSolstice.decemberSolstice
-    }
-  }
-
 }
 
 extension Date {
