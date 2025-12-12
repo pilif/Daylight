@@ -63,4 +63,28 @@ struct SolarCalculatorTests {
     #expect(expectedOutput == dawnPreview.dusk)
   }
 
+  @Test
+  func diffBeforeSolstice() async {
+    let currentDate: Date = "2025-12-12 13:33:22+02"
+    let location = CLLocation(latitude: 47.35911111, longitude: 8.51980556)
+    var calendar = Calendar.current
+    calendar.timeZone = TimeZone(identifier: "Europe/Zurich")!
+    calendar.locale = Locale(identifier: "de_CH")
+    let calc = SolarCalculator(forLocation: location, atDate: currentDate, calendar: calendar)
+    let res = await calc.eveningTimeSinceExtreme()
+    #expect(res == 7.0)
+  }
+
+  @Test
+  func diffAfterSolstice() async {
+    let currentDate: Date = "2025-12-22 13:33:22+02"
+    let location = CLLocation(latitude: 47.35911111, longitude: 8.51980556)
+    var calendar = Calendar.current
+    calendar.timeZone = TimeZone(identifier: "Europe/Zurich")!
+    calendar.locale = Locale(identifier: "de_CH")
+    let calc = SolarCalculator(forLocation: location, atDate: currentDate, calendar: calendar)
+    let res = await calc.eveningTimeSinceExtreme()
+    #expect(res == 187.0)
+  }
+
 }

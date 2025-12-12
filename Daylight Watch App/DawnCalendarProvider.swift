@@ -73,6 +73,10 @@ actor DawnCalendarProvider {
     return calendar
   }
 
+  // in case we take the december solstice for the beginning of the window
+  // which we do to keep the amount of dates needing to be calculated as
+  // small as possible, then subtract 21 days because normally, the earliest
+  // sunset happens before the solstice
   private func startDate(forSun: Sun, calendar: Calendar = .current) -> Date {
     let date = forSun.date
 
@@ -83,7 +87,7 @@ actor DawnCalendarProvider {
     } else if date < forSun.decemberSolstice {
       return forSun.juneSolstice
     } else {
-      return forSun.decemberSolstice
+      return calendar.date(byAdding: DateComponents(day: -21), to: forSun.decemberSolstice) ?? date
     }
   }
 
