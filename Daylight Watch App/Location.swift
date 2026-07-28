@@ -1,5 +1,6 @@
 import CoreLocation
 import Foundation
+import WidgetKit
 
 class Location: NSObject, ObservableObject, CLLocationManagerDelegate {
   @Published var authorizationStatus: CLAuthorizationStatus
@@ -14,10 +15,9 @@ class Location: NSObject, ObservableObject, CLLocationManagerDelegate {
     super.init()
     locationManager.delegate = self
     locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-    if UserDefaults.standard.object(forKey: "lat") is NSObject {
-      let lat = UserDefaults.standard.double(forKey: "lat")
-      let long = UserDefaults.standard.double(forKey: "long")
-      lastSeenLocation = CLLocation(latitude: lat, longitude: long)
+    lastSeenLocation = SharedLocationStore.shared.migrateLegacyLocation()
+    if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
+      startMonitoring()
     }
   }
 
@@ -35,10 +35,15 @@ class Location: NSObject, ObservableObject, CLLocationManagerDelegate {
   }
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    lastSeenLocation = locations.first
-    if let lastSeenLocation {
-      UserDefaults.standard.set(lastSeenLocation.coordinate.latitude, forKey: "lat")
-      UserDefaults.standard.set(lastSeenLocation.coordinate.longitude, forKey: "long")
+    guard let newLocation = locations.last else {
+      return
+    }
+    let previousLocation = SharedLocationStore.shared.load()?.location
+    lastSeenLocation = newLocation
+    SharedLocationStore.shared.save(newLocation)
+
+    if SharedLocationStore.requiresTimelineReload(from: previousLocation, to: newLocation) {
+      WidgetCenter.shared.reloadTimelines(ofKind: DaylightWidgetKind.nextSunTransition)
     }
   }
 

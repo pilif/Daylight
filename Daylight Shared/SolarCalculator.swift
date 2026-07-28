@@ -57,6 +57,10 @@ struct SolarCalculator {
     sun.civilDawn
   }
 
+  public var nauticalDawn: Date {
+    sun.nauticalDawn
+  }
+
   public var sunset: Date {
     sun.civilDusk
   }
@@ -105,13 +109,15 @@ struct SolarCalculator {
     for times in dawnCalendar.times {
       if needDawnPreview && dawn == nil
         && calendar.startOfDay(for: times.dawn) > calendar.startOfDay(for: date)
-        && times.dawn.secondsSinceMidnight < self.sunrise.secondsSinceMidnight
+        && times.dawn.secondsSinceMidnight(in: calendar)
+          < self.sunrise.secondsSinceMidnight(in: calendar)
       {
         dawn = times.dawn
       }
       if needDuskPreview && dusk == nil
         && calendar.startOfDay(for: times.dusk) > calendar.startOfDay(for: date)
-        && times.dusk.secondsSinceMidnight > self.sunset.secondsSinceMidnight
+        && times.dusk.secondsSinceMidnight(in: calendar)
+          > self.sunset.secondsSinceMidnight(in: calendar)
       {
         dusk = times.dusk
       }
@@ -142,14 +148,18 @@ struct SolarCalculator {
         if date > times.dawn {
           continue
         }
-        if date.secondsSinceMidnight >= times.dawn.secondsSinceMidnight {
+        if date.secondsSinceMidnight(in: calendar) >= times.dawn.secondsSinceMidnight(in: calendar)
+        {
           return (dawn: times.dawn, dusk: nil)
         }
       } else if date > sun.civilDusk {
         if times.dusk < sun.civilDusk {
           continue
         }
-        if date < times.dusk && date.secondsSinceMidnight <= times.dusk.secondsSinceMidnight {
+        if date < times.dusk
+          && date.secondsSinceMidnight(in: calendar)
+            <= times.dusk.secondsSinceMidnight(in: calendar)
+        {
           return (dawn: nil, dusk: times.dusk)
         }
       }
@@ -165,8 +175,8 @@ struct SolarCalculator {
     let now = self.sun.civilDawn
     let extreme = await latestSunrise()
 
-    let secondsNow = now.secondsSinceMidnight
-    let secondsExtreme = extreme.secondsSinceMidnight
+    let secondsNow = now.secondsSinceMidnight(in: calendar)
+    let secondsExtreme = extreme.secondsSinceMidnight(in: calendar)
 
     return Double(secondsExtreme - secondsNow)
   }
@@ -175,8 +185,8 @@ struct SolarCalculator {
     let now = self.sun.civilDusk
     let extreme = await earliestSunset()
 
-    let secondsNow = now.secondsSinceMidnight
-    let secondsExtreme = extreme.secondsSinceMidnight
+    let secondsNow = now.secondsSinceMidnight(in: calendar)
+    let secondsExtreme = extreme.secondsSinceMidnight(in: calendar)
 
     return Double(secondsNow - secondsExtreme)
   }
@@ -200,9 +210,12 @@ struct SolarCalculator {
 
 extension Date {
   public var secondsSinceMidnight: Int {
-    let cal = Calendar.current
-    return cal.component(.hour, from: self) * 60 * 60
-      + cal.component(.minute, from: self) * 60
-      + cal.component(.second, from: self)
+    secondsSinceMidnight(in: .current)
+  }
+
+  public func secondsSinceMidnight(in calendar: Calendar) -> Int {
+    calendar.component(.hour, from: self) * 60 * 60
+      + calendar.component(.minute, from: self) * 60
+      + calendar.component(.second, from: self)
   }
 }

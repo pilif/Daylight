@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2600"
+   LastUpgradeVersion = "2700"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -89,7 +89,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "761EBFB22D2D044B00DBF604"
             BuildableName = "Daylight Watch App.app"
-            BlueprintName = "Daylight Watch App"
             ReferencedContainer = "container:Daylight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -106,7 +105,6 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "761EBFB22D2D044B00DBF604"
             BuildableName = "Daylight Watch App.app"
-            BlueprintName = "Daylight Watch App"
             ReferencedContainer = "container:Daylight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

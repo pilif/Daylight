@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		761EBFB42D2D044B00DBF604 /* Daylight Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		76379D162D2D209D00799374 /* SunKit in Frameworks */ = {isa = PBXBuildFile; productRef = 76379D152D2D209D00799374 /* SunKit */; };
+		77A100012F00000100000001 /* Daylight Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 77A100032F00000100000003 /* Daylight Widget.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		77A100022F00000100000002 /* SunKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77A100102F00000100000010 /* SunKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,13 @@
 			remoteGlobalIDString = 761EBFB22D2D044B00DBF604;
 			remoteInfo = "Daylight Watch App";
 		};
+		77A1000D2F0000010000000D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 761EBFA72D2D044B00DBF604 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 77A100092F00000100000009;
+			remoteInfo = "Daylight Widget";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +54,15 @@
 			);
 			name = "Embed Watch Content";
 		};
+		77A100052F00000100000005 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				77A100012F00000100000001 /* Daylight Widget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +71,18 @@
 		761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daylight Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daylight Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76904C732D2FC6260007A63E /* Daylight Watch App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Daylight Watch App.xctestplan"; sourceTree = "<group>"; };
+		77A100032F00000100000003 /* Daylight Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Daylight Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		77A100112F00000100000011 /* Exceptions for "Daylight Widget" folder in "Daylight Widget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 77A100092F00000100000009 /* Daylight Widget */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		761EBFB72D2D044B00DBF604 /* Daylight Watch App */ = {
@@ -69,6 +98,19 @@
 		761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Daylight Watch AppUITests";
+			sourceTree = "<group>";
+		};
+		77A100042F00000100000004 /* Daylight Widget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				77A100112F00000100000011 /* Exceptions for "Daylight Widget" folder in "Daylight Widget" target */,
+			);
+			path = "Daylight Widget";
+			sourceTree = "<group>";
+		};
+		77A1000F2F0000010000000F /* Daylight Shared */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Daylight Shared";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -90,6 +132,12 @@
 			files = (
 			);
 		};
+		77A100062F00000100000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				77A100022F00000100000002 /* SunKit in Frameworks */,
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -100,6 +148,8 @@
 				761EBFB72D2D044B00DBF604 /* Daylight Watch App */,
 				761EBFC82D2D044C00DBF604 /* Daylight Watch AppTests */,
 				761EBFD22D2D044C00DBF604 /* Daylight Watch AppUITests */,
+				77A100042F00000100000004 /* Daylight Widget */,
+				77A1000F2F0000010000000F /* Daylight Shared */,
 				76379D092D2D172300799374 /* Frameworks */,
 				761EBFAE2D2D044B00DBF604 /* Products */,
 			);
@@ -112,6 +162,7 @@
 				761EBFB32D2D044B00DBF604 /* Daylight Watch App.app */,
 				761EBFC52D2D044C00DBF604 /* Daylight Watch AppTests.xctest */,
 				761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */,
+				77A100032F00000100000003 /* Daylight Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,11 +201,16 @@
 				761EBFAF2D2D044B00DBF604 /* Sources */,
 				761EBFB02D2D044B00DBF604 /* Frameworks */,
 				761EBFB12D2D044B00DBF604 /* Resources */,
+				77A100052F00000100000005 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
+			dependencies = (
+				77A1000E2F0000010000000E /* PBXTargetDependency */,
+			);
 			fileSystemSynchronizedGroups = (
 				761EBFB72D2D044B00DBF604 /* Daylight Watch App */,
+				77A1000F2F0000010000000F /* Daylight Shared */,
 			);
 			name = "Daylight Watch App";
 			packageProductDependencies = (
@@ -206,6 +262,28 @@
 			productReference = 761EBFCF2D2D044C00DBF604 /* Daylight Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		77A100092F00000100000009 /* Daylight Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 77A1000C2F0000010000000C /* Build configuration list for PBXNativeTarget "Daylight Widget" */;
+			buildPhases = (
+				77A100072F00000100000007 /* Sources */,
+				77A100062F00000100000006 /* Frameworks */,
+				77A100082F00000100000008 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				77A100042F00000100000004 /* Daylight Widget */,
+				77A1000F2F0000010000000F /* Daylight Shared */,
+			);
+			name = "Daylight Widget";
+			packageProductDependencies = (
+				77A100102F00000100000010 /* SunKit */,
+			);
+			productName = "Daylight Widget";
+			productReference = 77A100032F00000100000003 /* Daylight Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -214,7 +292,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					761EBFAC2D2D044B00DBF604 = {
 						CreatedOnToolsVersion = 16.2;
@@ -229,6 +307,9 @@
 					761EBFCE2D2D044C00DBF604 = {
 						CreatedOnToolsVersion = 16.2;
 						TestTargetID = 761EBFB22D2D044B00DBF604;
+					};
+					77A100092F00000100000009 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -253,6 +334,7 @@
 				761EBFB22D2D044B00DBF604 /* Daylight Watch App */,
 				761EBFC42D2D044C00DBF604 /* Daylight Watch AppTests */,
 				761EBFCE2D2D044C00DBF604 /* Daylight Watch AppUITests */,
+				77A100092F00000100000009 /* Daylight Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +360,11 @@
 			files = (
 			);
 		};
+		77A100082F00000100000008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -292,6 +379,11 @@
 			);
 		};
 		761EBFCB2D2D044C00DBF604 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		77A100072F00000100000007 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
 			);
@@ -313,6 +405,11 @@
 			isa = PBXTargetDependency;
 			target = 761EBFB22D2D044B00DBF604 /* Daylight Watch App */;
 			targetProxy = 761EBFD02D2D044C00DBF604 /* PBXContainerItemProxy */;
+		};
+		77A1000E2F0000010000000E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 77A100092F00000100000009 /* Daylight Widget */;
+			targetProxy = 77A1000D2F0000010000000D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -442,6 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Daylight Watch App/Daylight.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -477,6 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Daylight Watch App/Daylight.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -514,6 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_KEY_CFBundleDisplayName = Daylight;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -528,6 +628,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_KEY_CFBundleDisplayName = Daylight;
+				IPHONEOS_DEPLOYMENT_TARGET = "$(RECOMMENDED_IPHONEOS_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -613,6 +714,63 @@
 			};
 			name = Release;
 		};
+		77A1000A2F0000010000000A /* Debug configuration for PBXNativeTarget "Daylight Widget" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = "Daylight Widget/DaylightWidget.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9U6Q6F846;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Daylight Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../Frameworks",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight.watchkitapp.NextSunTransitionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		77A1000B2F0000010000000B /* Release configuration for PBXNativeTarget "Daylight Widget" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = "Daylight Widget/DaylightWidget.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R9U6Q6F846;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Daylight Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../../Frameworks",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = me.pilif.Daylight.watchkitapp.NextSunTransitionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -656,6 +814,14 @@
 			);
 			defaultConfigurationName = Release;
 		};
+		77A1000C2F0000010000000C /* Build configuration list for PBXNativeTarget "Daylight Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77A1000A2F0000010000000A /* Debug configuration for PBXNativeTarget "Daylight Widget" */,
+				77A1000B2F0000010000000B /* Release configuration for PBXNativeTarget "Daylight Widget" */,
+			);
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -671,6 +837,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		76379D152D2D209D00799374 /* SunKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76379D142D2D208100799374 /* XCRemoteSwiftPackageReference "SunKit" */;
+			productName = SunKit;
+		};
+		77A100102F00000100000010 /* SunKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76379D142D2D208100799374 /* XCRemoteSwiftPackageReference "SunKit" */;
 			productName = SunKit;

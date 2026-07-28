@@ -30,35 +30,7 @@ struct SunRow: View {
   }
 
   private var formattedDiff: String {
-    if let diffPreview = diffPreview {
-      let f = DateFormatter()
-      f.dateFormat = "MMM, dd"
-      if let s = f.string(for: diffPreview) {
-        return s
-      }
-    }
-    guard let diff else {
-      let f = DateFormatter()
-      f.dateFormat = "HH:mm"
-      return f.string(from: absolute)
-    }
-
-    let absDiff = abs(diff)
-    var str: String
-    if absDiff > 60 * 60 {
-      str =
-        Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .hourMinute))
-        + " h"
-    } else if absDiff >= 60 {
-      str =
-        Duration(timeval(tv_sec: Int(diff), tv_usec: 0)).formatted(.time(pattern: .minuteSecond))
-        + " min"
-    } else {
-      str = "\(Int(absDiff.rounded())) s"
-    }
-    let prefix = diff >= 0 ? "+" : ""
-
-    return "\(prefix)\(str)"
+    SunTransitionFormatting.difference(diff, absolute: absolute, previewDate: diffPreview)
   }
 
   init(

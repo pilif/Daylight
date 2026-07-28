@@ -49,12 +49,14 @@ actor DawnCalendarProvider {
         let sunThen = Sun(location: forSun.location, timeZone: calendar.timeZone, date: cd)
         times.append((dawn: sunThen.civilDawn, dusk: sunThen.civilDusk))
         if latestDawn == nil
-          || sunThen.civilDawn.secondsSinceMidnight > latestDawn!.secondsSinceMidnight
+          || sunThen.civilDawn.secondsSinceMidnight(in: calendar)
+            > latestDawn!.secondsSinceMidnight(in: calendar)
         {
           latestDawn = sunThen.civilDawn
         }
         if earliestDusk == nil
-          || sunThen.civilDusk.secondsSinceMidnight < earliestDusk!.secondsSinceMidnight
+          || sunThen.civilDusk.secondsSinceMidnight(in: calendar)
+            < earliestDusk!.secondsSinceMidnight(in: calendar)
         {
           earliestDusk = sunThen.civilDusk
         }

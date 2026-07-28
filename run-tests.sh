@@ -8,14 +8,24 @@ fi
 
 mkdir -p result
 
-#xcodebuild test -showdestinations -scheme "Daylight Watch App" -target "Daylight Watch AppTests"
-#
-#id="$(xcodebuild test -showdestinations -scheme "Daylight Watch App" -target "Daylight Watch AppTests" | grep "watchOS Simulator" | grep "Apple Watch Series 11 (46mm)" | head -n 1 | grep -Eo 'id:.*?,' | sed  's/id://' | sed 's/,$//')"
-#echo "Running on destination $id"
+id="$(
+    xcrun simctl list devices available |
+        awk '/Apple Watch Series 11 \(46mm\)/ {
+            match($0, /\([0-9A-F-]{36}\)/)
+            id = substr($0, RSTART + 1, RLENGTH - 2)
+        } END { print id }'
+)"
+
+if [ -z "$id" ]; then
+    echo "No available Apple Watch Series 11 (46mm) simulator found" >&2
+    exit 1
+fi
+
+echo "Running on destination $id"
 
 xcodebuild test \
     -scheme "Daylight Watch App" \
     -target "Daylight Watch AppTests" \
-    -destination 'platform=watchOS Simulator,name=Apple Watch Series 11 (46mm)' \
+    -destination "platform=watchOS Simulator,id=$id" \
     -resultBundlePath result/test-results.xcresult \
     CODE_SIGNING_ALLOWED='NO'
